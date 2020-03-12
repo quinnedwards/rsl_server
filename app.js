@@ -18,6 +18,6 @@ app.use(require("./middleware/validateSession"));
 app.use('/api/rating', rating);
 
 
-app.listen(3003, function(){
-    console.log('App is listening on 3002.')
+app.listen(process.env.PORT = () => {
+    console.log('App is listening on 3003.')
 });
