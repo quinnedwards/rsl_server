@@ -3,9 +3,12 @@ let User = require('../db').import('../models/user');
 let bcrypt = require('bcryptjs');
 let jwt = require('jsonwebtoken');
 
-router.post('/signup', (req, res) => {
+router.post('/user', (req, res) => {
     console.log(req.body)
     User.create({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
         username: req.body.username,
         password: bcrypt.hashSync(req.body.password, 10)
     
@@ -32,7 +35,7 @@ router.post('/signup', (req, res) => {
 router.post('/login',(req, res) => {
     User.findOne({
         where:{
-            username: req.body.user.username
+            username: req.body.username
         }
     }).then(user => {
         if(user){

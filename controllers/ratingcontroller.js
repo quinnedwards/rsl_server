@@ -2,7 +2,7 @@ let express = require('express');
 let router = express.Router();
 let Rating = require('../db').import('../models/rating');
 
-router.post('/', (req, res) => {
+router.post('/create', (req, res) => {
     const ratingFromRequest = {
         description: req.body.description,
         location: req.body.location,
@@ -53,7 +53,8 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     Rating.destroy({
         where: {
-            id: req.params.id
+            id: req.params.id, 
+            userId: req.user.id
         }
     })
     .then(rating => res.status(200).json(rating))
