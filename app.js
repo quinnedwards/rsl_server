@@ -8,9 +8,9 @@ let user = require('./controllers/usercontroller')
 
 let sequelize = require('./db');
 sequelize.sync();
+app.use(require('./middleware/headers'));
 app.use(express.json());
 
-app.use(require('./middleware/headers'));
 
 app.use('/api', user);
 app.use(require("./middleware/validateSession"));
