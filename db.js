@@ -9,6 +9,7 @@ sequelize.authenticate()
 
     User = sequelize.import('./models/user');
     Rating = sequelize.import('./models/rating');
+    Stores = sequelize.import('./models/store');
 
     Rating.belongsTo(User);
     User.hasMany(Rating);
