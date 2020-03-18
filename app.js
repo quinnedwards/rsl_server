@@ -7,7 +7,7 @@ let rating = require('./controllers/ratingcontroller')
 let user = require('./controllers/usercontroller')
 
 let sequelize = require('./db');
-sequelize.sync();
+sequelize.sync({force: true});
 app.use(require('./middleware/headers'));
 app.use(express.json());
 
