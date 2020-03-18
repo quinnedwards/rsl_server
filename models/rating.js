@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
         location: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     })
     return Rating;

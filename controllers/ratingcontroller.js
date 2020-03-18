@@ -6,6 +6,7 @@ router.post('/create', (req, res) => {
     const ratingFromRequest = {
         description: req.body.description,
         location: req.body.location,
+        name: req.body.name,
         userId: req.user.id
     }
 
@@ -29,7 +30,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    Rating.findOne({
+    Rating.findAll({
         where: {
             id: req.params.id
         }
