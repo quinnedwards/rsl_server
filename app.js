@@ -5,6 +5,7 @@ let app = express();
 
 let rating = require('./controllers/ratingcontroller')
 let user = require('./controllers/usercontroller')
+let store = require('./controllers/storecontroller')
 
 let sequelize = require('./db');
 sequelize.sync();
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use('/api', user);
 app.use(require("./middleware/validateSession"));
+app.use('/store', store);
 app.use('/api/rating', rating);
 
 
