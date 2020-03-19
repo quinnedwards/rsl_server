@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.use('/api', user);
 app.use(require("./middleware/validateSession"));
-app.use('/store', store);
+app.use('/api/store', store);
 app.use('/api/rating', rating);
 
 
