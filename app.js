@@ -8,7 +8,7 @@ let user = require('./controllers/usercontroller')
 let store = require('./controllers/storecontroller')
 
 let sequelize = require('./db');
-sequelize.sync({force: true});
+sequelize.sync();
 app.use(require('./middleware/headers'));
 app.use(express.json());
 
